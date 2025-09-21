@@ -7,9 +7,10 @@ import { Button } from './ui/Button';
 
 interface HeaderProps {
   onMenuToggle: () => void;
+  onAuthRequired?: () => void;
 }
 
-export function Header({ onMenuToggle }: HeaderProps) {
+export function Header({ onMenuToggle, onAuthRequired }: HeaderProps) {
   const { context } = useMiniKit();
   const { user } = useAuthenticate();
 
@@ -43,7 +44,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                 </span>
               </div>
             ) : (
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={onAuthRequired}>
                 Connect
               </Button>
             )}

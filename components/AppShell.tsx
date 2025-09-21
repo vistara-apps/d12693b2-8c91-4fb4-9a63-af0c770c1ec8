@@ -6,14 +6,18 @@ import { Navigation } from './Navigation';
 
 interface AppShellProps {
   children: React.ReactNode;
+  onAuthRequired?: () => void;
 }
 
-export function AppShell({ children }: AppShellProps) {
+export function AppShell({ children, onAuthRequired }: AppShellProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-bg">
-      <Header onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
+      <Header
+        onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
+        onAuthRequired={onAuthRequired}
+      />
       
       <main className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="pt-4">
