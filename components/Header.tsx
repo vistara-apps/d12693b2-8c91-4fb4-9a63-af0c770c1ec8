@@ -1,7 +1,5 @@
 'use client';
 
-import { useMiniKit } from '@coinbase/minikit';
-import { useAuthenticate } from '@coinbase/onchainkit/minikit';
 import { Menu, User } from 'lucide-react';
 import { Button } from './ui/Button';
 
@@ -10,8 +8,8 @@ interface HeaderProps {
 }
 
 export function Header({ onMenuToggle }: HeaderProps) {
-  const { context } = useMiniKit();
-  const { user } = useAuthenticate();
+  // TODO: Add authentication logic once MiniKit hooks are available
+  const user = null; // Placeholder for user state
 
   return (
     <header className="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-gray-800">
@@ -25,7 +23,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
             >
               <Menu className="h-5 w-5" />
             </button>
-            
+
             <div className="flex items-center space-x-2">
               <div className="text-2xl font-bold text-primary">🍴</div>
               <h1 className="text-xl font-bold text-text-primary">Forkd</h1>
@@ -39,7 +37,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                   <User className="h-4 w-4 text-primary" />
                 </div>
                 <span className="text-sm text-text-primary hidden sm:block">
-                  {context?.user?.displayName || 'User'}
+                  User
                 </span>
               </div>
             ) : (
