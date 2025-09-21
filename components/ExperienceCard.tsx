@@ -115,7 +115,7 @@ export function ExperienceCard({ experience, variant = 'preview', onClick }: Exp
           {isBooking && (
             <Button className="w-full" onClick={(e) => {
               e.stopPropagation();
-              // Handle booking action
+              // This will be handled by parent component
             }}>
               Book Now
             </Button>

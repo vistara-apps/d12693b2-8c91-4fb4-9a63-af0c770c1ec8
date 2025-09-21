@@ -3,8 +3,14 @@
 import { Search } from 'lucide-react';
 import { Button } from './ui/Button';
 import { Input } from './ui/Input';
+import { User } from '@/lib/types';
 
-export function HeroSection() {
+interface HeroSectionProps {
+  user?: User | null;
+  onAuthClick?: () => void;
+}
+
+export function HeroSection({ user, onAuthClick }: HeroSectionProps) {
   return (
     <section className="text-center space-y-6 py-8">
       <div className="space-y-4">
@@ -38,6 +44,25 @@ export function HeroSection() {
           ))}
         </div>
       </div>
+
+      {!user && onAuthClick && (
+        <div className="pt-4">
+          <Button onClick={onAuthClick} size="lg">
+            Get Started - Connect Your Wallet
+          </Button>
+          <p className="text-xs text-text-secondary mt-2">
+            Join the culinary community with Farcaster or Base Wallet
+          </p>
+        </div>
+      )}
+
+      {user && (
+        <div className="pt-4">
+          <p className="text-sm text-accent">
+            Welcome back, {user.name}! Ready to discover your next culinary adventure?
+          </p>
+        </div>
+      )}
     </section>
   );
 }

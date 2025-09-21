@@ -3,15 +3,59 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-gray-700;
+  :root {
+    /* Design System Color Tokens */
+    --primary: hsl(346, 80%, 58%);
+    --primary-50: hsl(346, 80%, 95%);
+    --primary-100: hsl(346, 80%, 90%);
+    --primary-200: hsl(346, 80%, 80%);
+    --primary-300: hsl(346, 80%, 70%);
+    --primary-400: hsl(346, 80%, 60%);
+    --primary-500: hsl(346, 80%, 58%);
+    --primary-600: hsl(346, 80%, 50%);
+    --primary-700: hsl(346, 80%, 40%);
+    --primary-800: hsl(346, 80%, 30%);
+    --primary-900: hsl(346, 80%, 20%);
+    --primary-950: hsl(346, 80%, 10%);
+
+    --accent: hsl(198, 88%, 50%);
+    --accent-50: hsl(198, 88%, 95%);
+    --accent-100: hsl(198, 88%, 90%);
+    --accent-200: hsl(198, 88%, 80%);
+    --accent-300: hsl(198, 88%, 70%);
+    --accent-400: hsl(198, 88%, 60%);
+    --accent-500: hsl(198, 88%, 50%);
+    --accent-600: hsl(198, 88%, 40%);
+    --accent-700: hsl(198, 88%, 30%);
+    --accent-800: hsl(198, 88%, 20%);
+    --accent-900: hsl(198, 88%, 10%);
+    --accent-950: hsl(198, 88%, 5%);
+
+    --bg: hsl(220, 12%, 10%);
+    --surface: hsl(220, 14%, 16%);
+    --text-primary: hsl(220, 14%, 95%);
+    --text-secondary: hsl(220, 14%, 75%);
+
+    --muted: hsl(220, 14%, 20%);
+    --muted-foreground: hsl(220, 14%, 60%);
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --border: hsl(220, 14%, 25%);
+    --input: hsl(220, 14%, 25%);
+    --ring: hsl(198, 88%, 50%);
+
+    --radius: 16px;
   }
-  
+
+  * {
+    @apply border-border;
+  }
+
   body {
     @apply bg-bg text-text-primary;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
@@ -19,23 +63,23 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-primary/90 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50;
+    @apply bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500;
   }
-  
+
   .btn-secondary {
-    @apply bg-surface text-text-primary px-4 py-2 rounded-md font-medium hover:bg-surface/80 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50;
+    @apply bg-surface text-text-primary px-4 py-2 rounded-lg font-medium hover:bg-surface/80 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500;
   }
-  
+
   .btn-outline {
-    @apply border border-gray-600 text-text-primary px-4 py-2 rounded-md font-medium hover:bg-surface/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent/50;
+    @apply border border-border text-text-primary px-4 py-2 rounded-lg font-medium hover:bg-surface/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500;
   }
-  
+
   .card {
-    @apply bg-surface rounded-lg p-4 shadow-card;
+    @apply bg-surface rounded-xl p-6 shadow-lg border border-border;
   }
-  
+
   .input {
-    @apply bg-surface border border-gray-600 rounded-md px-3 py-2 text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent;
+    @apply bg-surface border border-border rounded-lg px-3 py-2 text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent;
   }
 }
 
